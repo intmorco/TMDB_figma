@@ -1,10 +1,11 @@
+s
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.scss">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
   <title>TMDB</title>
@@ -13,29 +14,6 @@
 <body>
 
   <header class="header">
-    <!-- <div class="logo">
-      <img src="/logo.svg" alt="">
-      <img src="/s_media.svg"></img>
-    </div>
-    <nav class="nav">
-      <ul>
-        <li><a href="#">Афиша</a></li>
-        <li><a href="#">Медиа</a></li>
-        <li><a href="#">Фильмы</a></li>
-        <li><a href="#">Актеры</a></li>
-        <li><a href="#">Новости</a></li>
-        <li><a href="#">Подборки</a></li>
-        <li><a href="#">Категории</a></li>
-      </ul>
-    </nav>
-    <div class="header-right">
-      <div class="search-box">
-        <button class="search-button">
-          <i class="material-icons">search</i>
-        </button>
-      </div>
-      <button class="login-button">Войти</button>
-    </div> -->
   </header>
 
   <div class="container">
@@ -58,23 +36,7 @@
     </div>
 
     <div class="movie_grid">
-      <!-- 
-      <div class="movie_card">
-        <div class="card_img">
-          <img src="https://image.tmdb.org/t/p/original${item.poster_path}" alt="Movie Poster">
 
-          <div class="card_rating"></div>
-
-        </div>
-
-        <div class="details">
-          <div class="title">
-            <span>Побег из Претории</span>
-          </div>
-          <div class="genre">
-            <span>Триллер</span>
-          </div>
-        </div> -->
 
     </div>
 
@@ -83,6 +45,9 @@
   <button class="show_all">
     Все новинки
   </button>
+  <button class="hide_all hide">
+    Свернуть
+  </button>
 
   <div class="container">
     <div class="poster">
@@ -90,14 +55,196 @@
         <h1>Новые трейлеры</h1>
       </div>
       <div class="poster_right">
-        <span>Все трейлеры <i class="material-icons arrow">arrow_forward</i></span>
+        <span>Все трейлеры </span>
+        <img src="/arrow.svg" alt="">
       </div>
     </div>
 
     <div class="trailer">
 
     </div>
+    <div class="poster">
+
+      <div class="poster_left">
+        <h1>Форсаж 9</h1>
+        <img class="s_media" src="/s_media.svg" alt="">
+      </div>
+
+      <div class="poster_right ">
+
+        <div class="like">
+          <button class="tomb">
+            <img src="/tomb_up.svg" alt="">
+          </button>
+          <span>12455</span>
+        </div>
+        <div class="like">
+          <button class="tomb down">
+            <img src="/tomb_up.svg" alt="">
+          </button>
+          <span>6165</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="slider">
+      
+    </div>
+
   </div>
+
+  <div class="container">
+
+    <div class="poster">
+      <div class="poster_left">
+        <h1>Популярные фильмы</h1>
+      </div>
+      <img src="/line.svg" alt="">
+      <div class="poster_right">
+        <ul>
+          <li><a href="#">Всё время</a></li>
+          <li><a href="#">2020</a></li>
+          <li><a href="#">2019</a></li>
+          <li><a href="#">2018</a></li>
+          <li><a href="#">2017</a></li>
+          <li><a href="#">2016</a></li>
+          <li><a href="#">2015</a></li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="movie_grid popular">
+
+    </div>
+
+    <div class="arrows">
+      <img class="arrow_left" src="/arrow.svg" alt="">
+      <span>4/15</span>
+      <img class="arrow_right" src="/arrow.svg" alt="">
+
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="poster">
+      <div class="poster_left">
+        <h1>Популярные персоны</h1>
+      </div>
+      <div class="poster_right">
+        <ul>
+          <li><a href="#">За год</a></li>
+          <li><a href="#">За месяц</a></li>
+          <li><a href="#">За неделю</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="people">
+
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <div class="poster">
+      <div class="poster_left">
+        <h1>Последние новости</h1>
+      </div>
+      <div class="poster_right">
+        <span>Все новости</span>
+        <img src="/arrow.svg" alt="">
+      </div>
+    </div>
+
+    <div class="news_div">
+      <div class="news_billboard">
+        <div class="news_info">
+          <span class="date">15 Апр 2020</span>
+
+          <img src="/view.svg" alt="">
+          <span class="views">
+            242
+          </span>
+
+          <img src="/comment.svg" alt="">
+          <span class="comments">
+            14
+          </span>
+
+        </div>
+
+        <div class="news_title">
+          <h2>
+            Не время умирать. Перенос релиза фильма
+          </h2>
+          <span>Но действия представителей оппозиции в равной степени предоставлены сами себе. В рамках спецификации
+            современных стандартов, стремящиеся вытеснить традиционное производство, нанотехнологии указаны как
+            претенденты на роль ключевых факторов.</span>
+        </div>
+      </div>
+
+      <div class="news_others">
+        
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="container">
+
+    <div class="poster">
+      <div class="poster_left">
+        <h1>Ожидаемые новинки</h1>
+      </div>
+      <div class="poster_right">
+        <div class="arrows">
+          <img class="arrow_left" src="/arrow.svg" alt="">
+          <span>2/5</span>
+          <img class="arrow_right" src="/arrow.svg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="movie_grid upcoming">
+
+    </div>
+
+  </div>
+
+  <div class="container subscription-content">
+    <!-- <div class="subscription-details">
+      <img src="/logo_white.svg" alt="">
+      <h1 class="subscription-title">Подпишитесь на E-mail рассылку</h1>
+      <p class="subscription-description">
+        Если хотите быть в курсе последних новостей и новинок кино – заполните форму ниже и оформите бесплатную E-mail
+        рассылку!
+      </p>
+
+      <form class="subscription-form">
+        <input type="email" class="email-input" placeholder="Введите свой E-mail адрес" required>
+        <button type="submit" class="submit-button"> Подписаться
+        </button>
+      </form>
+
+      <label class="subscription-checkbox">
+        <input checked type="checkbox" class="checkbox-input" required>
+        Соглашаюсь на условия <a href="#" class="privacy-link">политики конфиденциальности</a>
+      </label>
+    </div> -->
+
+  </div>
+
+  <footer class="footer">
+    
+  </footer>
+
+
+
+
 
   <script type="module" src="script.js"></script>
 </body>

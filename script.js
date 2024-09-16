@@ -1,30 +1,55 @@
+import { Actor } from "./components/Actor";
 import { Header } from "./components/Header";
 import { Card } from "./components/Сard";
 import { reload } from "./lib/utils";
+import { Footer } from "./components/Footer";
+import { getData } from "./lib/https.request";
+import { Slider } from "./components/Slider";
+import { SubForm } from "./components/SubForm"
 
 Header()
-
 const cont = document.querySelector('.container')
-const token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzdmZDlmZmRhNDU4ZWFkNjFmY2M4NGYxZDg4MjU2MyIsIm5iZiI6MTcyNTYyMDY3Ni4wMDMwOTcsInN1YiI6IjY2ZGE2MDA1NzRhYmViZjZmOThjYTgzYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.huCjJkzXHk_kyZjeGeTipmuvzlMEhek8UUFeNAGk0E0"
-const res = await fetch('https://api.themoviedb.org/3/movie/top_rated', {
-    headers: {
-        Authorization: `Bearer ${token}`
-    }
-})
+
+const res_now_playing = await getData("/movie/now_playing")
+const res_top_rated = await getData("/movie/top_rated")
+const res_upcomimg = await getData("/movie/upcoming")
+const res_popular_people = await getData("/person/popular")
+
 
 const movie_grid = document.querySelector('.movie_grid')
+const popular = document.querySelector('.popular')
+const upcoming = document.querySelector('.upcoming')
+const sliders = document.querySelector('.slider')
+const people = document.querySelector('.people')
 
-const data = await res.json()
+reload(res_now_playing.results.slice(0, 4), Card, movie_grid)
+reload(res_top_rated.results.slice(0, 4), Card, popular)
+reload(res_upcomimg.results.slice(0, 4), Card, upcoming)
+reload(res_top_rated.results.slice(0, 4), Slider, sliders)
+reload(res_popular_people.results.slice(0, 3), Actor, people)
 
-
-reload(data.results.slice(0,4), Card, movie_grid)
+console.log(res_popular_people.results.slice(0, 3))
 
 const show_all = document.querySelector('.show_all')
+const hide = document.querySelector('.hide')
 
 show_all.onclick = () => {
-    reload(data.results, Card, movie_grid)
 
-    show_all.style.display = 'none'
+    reload(res_now_playing.results, Card, movie_grid)
+    show_all.classList.add('hide')
+    hide.classList.remove('hide')
 
 }
-console.log( data)
+
+hide.onclick = () => {
+
+    reload(res_now_playing.results.slice(0, 4), Card, movie_grid)
+    hide.classList.add('hide')
+    show_all.classList.remove('hide')
+
+}
+
+
+
+SubForm()
+Footer()

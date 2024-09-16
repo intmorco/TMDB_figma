@@ -30,7 +30,7 @@ export function Card(item) {
     details.append(title, genre)
 
 
-    const movie_grid = document.querySelector('.movie_grid')
-    movie_grid.append(movie_card)
+    
+    return movie_card
 
 }

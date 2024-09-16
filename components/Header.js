@@ -1,7 +1,7 @@
 
 export function Header() {
 
-  // Create the logo div
+
   const logo = document.createElement('div');
   logo.classList.add('logo');
 
@@ -14,7 +14,7 @@ export function Header() {
   logo.append(logo_img_1, logo_img_2)
 
 
-  // Create the nav element
+
   const nav = document.createElement('nav');
   nav.classList.add('nav');
 
