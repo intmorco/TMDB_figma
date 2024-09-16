@@ -6,8 +6,23 @@
 }
 
 body {
-
+    width: 100%;
     background-color: #1A2336;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(transparent, #1e25389a, #1A2336);
+        position: absolute;
+        z-index: -1;
+        bottom: 0px;
+    }
 }
 
 .header {
@@ -261,10 +276,10 @@ body {
     display: none;
 }
 
-.trailer {
+iframe {
     width: 100%;
     height: 640px;
-    background-image: url(/trailer_photo.jpg);
+    // background-image: url(/trailer_photo.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -318,7 +333,7 @@ body {
 
 }
 
-.slider{
+.slider {
     width: 100%;
 
     /* background-color:    green; */
@@ -326,7 +341,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    
+
 
 }
 
@@ -343,7 +358,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left;
-    
+
 }
 
 .slider_title {
@@ -361,7 +376,7 @@ body {
 }
 
 .people {
-    display: grid;   
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     // background-color: red; 
     gap: 15px;
@@ -470,23 +485,25 @@ body {
     position: relative;
     background-image: url(/bg.png);
     border-radius: 15px;
-  
+
     margin-top: 50px;
 }
+
 .subscription-details {
     height: 580px;
     position: relative;
     display: grid;
     justify-content: center;
-    
+
     text-align: center;
     color: #fff;
     z-index: 1;
 }
-.subscription-content{
-    &::after{
+
+.subscription-content {
+    &::after {
         border-radius: 15px;
-        content:"" ;
+        content: "";
         display: block;
         position: absolute;
         top: 0;
@@ -581,7 +598,7 @@ body {
     text-decoration: underline;
 }
 
-.footer{
+.footer {
     display: flex;
     flex-direction: column;
     align-items: center;

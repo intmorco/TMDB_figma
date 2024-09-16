@@ -15,8 +15,11 @@ export function Slider(item) {
     slider_div.append(slider_img, slider_title)
 
     slider_div.onclick = async () => {
-        const res = await getData(`movie/${item.id}/videos`)
-        console.log(res.results.find(item => item.type === "Trailer"))
+        const iframe = document.querySelector('iframe')
+        const res = await getData(`/movie/${item.id}/videos`)
+        const finded = res.results.find(item => item.type === "Trailer")
+
+        iframe.src = "https://www.youtube.com/embed/" + finded.key
     }
 
     return slider_div

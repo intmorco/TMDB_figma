@@ -1,11 +1,12 @@
-export function Card(item) {
+export function Card(item, genres) {
+    const body = document.body
     const movie_card = document.createElement('div')
     const card_img = document.createElement('div')
     const card_rating = document.createElement('div')
     const details = document.createElement('div')
     const title = document.createElement('div')
     const genre = document.createElement('div')
-   
+
 
 
 
@@ -18,7 +19,7 @@ export function Card(item) {
 
 
     card_img.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${item.poster_path})`;
-    
+
 
     title.innerHTML = item.original_title
     genre.innerHTML = item.genre_ids
@@ -26,11 +27,25 @@ export function Card(item) {
 
 
     movie_card.append(card_img, details)
-    card_img.append( card_rating)
+    card_img.append(card_rating)
     details.append(title, genre)
 
+    movie_card.onmousemove = () => {
+        body.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`;
+    };
 
-    
+    movie_card.onmouseout = () => {
+        body.style.backgroundColor = "#1A2336";
+        body.style.backgroundImage = "none";
+    };
+
+    // if (genre) {
+    //     genre.innerHTML = item.genre_ids.map((id) => {
+    //         const genreObj = genres.find((genre) => genre.id === id);
+    //         return genreObj ? genreObj.name : "";
+    //     }).join(", ");
+    // }
+
     return movie_card
 
 }

@@ -49,7 +49,11 @@ hide.onclick = () => {
 
 }
 
+const top_rated_first = await getData(`/movie/${res_top_rated.results[7].id}/videos`);
+const finded = top_rated_first.results.find((item) => item.type === "Trailer")
+const iframe = document.querySelector('iframe')
 
+iframe.src = "https://www.youtube.com/embed/" + finded.key
 
 SubForm()
 Footer()
